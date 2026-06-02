@@ -1,0 +1,36 @@
+<view class="page {{fontClass}}">
+  <view class="card">
+    <view class="section-title">血压正常范围</view>
+
+    <view class="range-group">
+      <view class="range-title">收缩压</view>
+      <view class="range-row">
+        <input class="range-input" type="number" value="{{range.systolicMin}}" data-field="systolicMin" bindinput="onRangeInput" />
+        <text class="range-separator">至</text>
+        <input class="range-input" type="number" value="{{range.systolicMax}}" data-field="systolicMax" bindinput="onRangeInput" />
+        <text class="unit">mmHg</text>
+      </view>
+    </view>
+
+    <view class="range-group">
+      <view class="range-title">舒张压</view>
+      <view class="range-row">
+        <input class="range-input" type="number" value="{{range.diastolicMin}}" data-field="diastolicMin" bindinput="onRangeInput" />
+        <text class="range-separator">至</text>
+        <input class="range-input" type="number" value="{{range.diastolicMax}}" data-field="diastolicMax" bindinput="onRangeInput" />
+        <text class="unit">mmHg</text>
+      </view>
+    </view>
+
+    <button class="secondary-button" bindtap="restoreDefaults">恢复默认</button>
+  </view>
+
+  <view class="card">
+    <view class="section-title">字号</view>
+    <view class="font-options">
+      <button class="font-button {{fontSize === 'small' ? 'active' : ''}}" data-size="small" bindtap="changeFontSize">小</button>
+      <button class="font-button {{fontSize === 'medium' ? 'active' : ''}}" data-size="medium" bindtap="changeFontSize">中</button>
+      <button class="font-button {{fontSize === 'large' ? 'active' : ''}}" data-size="large" bindtap="changeFontSize">大</button>
+    </view>
+  </view>
+</view>

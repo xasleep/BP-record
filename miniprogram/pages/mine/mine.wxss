@@ -1,0 +1,55 @@
+.range-group {
+  margin-bottom: 28rpx;
+}
+
+.range-title {
+  margin-bottom: 14rpx;
+  color: #374151;
+  font-weight: 700;
+}
+
+.range-row {
+  display: grid;
+  grid-template-columns: 1fr 64rpx 1fr 96rpx;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.range-input {
+  height: 80rpx;
+  border: 1rpx solid #D1D5DB;
+  border-radius: 8rpx;
+  background: #FAFBFC;
+  color: #111827;
+  font-size: 34rpx;
+  text-align: center;
+}
+
+.range-separator,
+.unit {
+  color: #6B7280;
+  text-align: center;
+}
+
+.font-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16rpx;
+}
+
+.font-button {
+  height: 84rpx;
+  border: 2rpx solid #D1D5DB;
+  border-radius: 8rpx;
+  background: #FFFFFF;
+  color: #374151;
+  font-size: 30rpx;
+  line-height: 84rpx;
+}
+
+.font-button.active {
+  border-color: #4A90D9;
+  background: #E8F3FF;
+  color: #4A90D9;
+  font-weight: 700;
+}

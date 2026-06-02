@@ -1,0 +1,35 @@
+<view class="page {{fontClass}}">
+  <view wx:if="{{dateTitle}}" class="filter-bar">
+    <text>{{dateTitle}}</text>
+    <button class="clear-button" bindtap="clearFilter">全部记录</button>
+  </view>
+
+  <view wx:if="{{records.length === 0}}" class="card empty">暂无记录</view>
+
+  <view wx:for="{{records}}" wx:key="id" class="card record-card">
+    <view class="record-top">
+      <view>
+        <view class="record-date">{{item.dateText}}</view>
+        <view class="record-time">{{item.timeText}}</view>
+      </view>
+      <view class="status-pill status-{{item.status}}">{{item.statusText}}</view>
+    </view>
+
+    <view class="values">
+      <view class="value-item">
+        <text class="value-number">{{item.systolic}}</text>
+        <text class="value-label">收缩压</text>
+      </view>
+      <view class="value-item">
+        <text class="value-number">{{item.diastolic}}</text>
+        <text class="value-label">舒张压</text>
+      </view>
+      <view class="value-item">
+        <text class="value-number">{{item.heartRate}}</text>
+        <text class="value-label">心率</text>
+      </view>
+    </view>
+
+    <view wx:if="{{item.medication}}" class="medication">{{item.medication}}</view>
+  </view>
+</view>

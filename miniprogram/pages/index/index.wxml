@@ -1,0 +1,50 @@
+<view class="page {{fontClass}}">
+  <button class="primary-button record-button" bindtap="goRecord">+ 记录</button>
+
+  <view class="card calendar-card">
+    <view class="month-header">
+      <button class="month-button" bindtap="prevMonth">‹</button>
+      <view class="month-title">{{monthTitle}}</view>
+      <button class="month-button" bindtap="nextMonth">›</button>
+    </view>
+
+    <view class="week-row">
+      <text wx:for="{{weekdays}}" wx:key="*this" class="week-cell">{{item}}</text>
+    </view>
+
+    <view class="calendar-grid">
+      <view
+        wx:for="{{calendarDays}}"
+        wx:key="dateKey"
+        class="day-cell {{item.isCurrentMonth ? '' : 'day-muted'}} {{item.isToday ? 'today' : ''}}"
+        data-date="{{item.dateKey}}"
+        data-has-record="{{item.hasRecord}}"
+        bindtap="onDayTap"
+      >
+        <text class="day-number">{{item.day}}</text>
+        <view wx:if="{{item.hasRecord}}" class="status-dot status-{{item.status}}"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-header">
+      <view class="section-title">最近记录</view>
+      <button class="link-button" bindtap="goHistory">查看全部</button>
+    </view>
+
+    <view wx:if="{{recentRecords.length === 0}}" class="empty">还没有记录，测量后点上方按钮添加。</view>
+    <view wx:else>
+      <view wx:for="{{recentRecords}}" wx:key="id" class="record-row">
+        <view class="record-main">
+          <view class="record-date">{{item.dateText}} {{item.timeText}}</view>
+          <view class="record-value">
+            <text class="status-dot inline status-{{item.status}}"></text>
+            <text>{{item.systolic}}/{{item.diastolic}} mmHg</text>
+          </view>
+        </view>
+        <view class="heart-rate">{{item.heartRate}} 次/分</view>
+      </view>
+    </view>
+  </view>
+</view>

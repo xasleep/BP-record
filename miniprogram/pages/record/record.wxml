@@ -1,0 +1,30 @@
+<view class="page {{fontClass}}">
+  <view class="card form-card">
+    <view class="section-title">本次测量</view>
+
+    <view class="field">
+      <view class="label">收缩压</view>
+      <input class="input" type="number" placeholder="请输入高压" value="{{systolic}}" bindinput="onSystolicInput" />
+      <text class="unit">mmHg</text>
+    </view>
+
+    <view class="field">
+      <view class="label">舒张压</view>
+      <input class="input" type="number" placeholder="请输入低压" value="{{diastolic}}" bindinput="onDiastolicInput" />
+      <text class="unit">mmHg</text>
+    </view>
+
+    <view class="field">
+      <view class="label">心率</view>
+      <input class="input" type="number" placeholder="30-250" value="{{heartRate}}" bindinput="onHeartRateInput" />
+      <text class="unit">次/分</text>
+    </view>
+
+    <view class="note-field">
+      <view class="label">备注/用药</view>
+      <textarea class="textarea" placeholder="可记录是否服药、测量状态等" value="{{medication}}" bindinput="onMedicationInput" maxlength="120" />
+    </view>
+  </view>
+
+  <button class="primary-button" bindtap="submitRecord">保存记录</button>
+</view>
