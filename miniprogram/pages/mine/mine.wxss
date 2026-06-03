@@ -18,8 +18,8 @@
 .range-input {
   height: 80rpx;
   border: 1rpx solid #D1D5DB;
-  border-radius: 8rpx;
-  background: #FAFBFC;
+  border-radius: 16rpx;
+  background: rgba(250, 251, 252, 0.78);
   color: #111827;
   font-size: 34rpx;
   text-align: center;
@@ -40,8 +40,8 @@
 .font-button {
   height: 84rpx;
   border: 2rpx solid #D1D5DB;
-  border-radius: 8rpx;
-  background: #FFFFFF;
+  border-radius: 16rpx;
+  background: rgba(255, 255, 255, 0.72);
   color: #374151;
   font-size: 30rpx;
   line-height: 84rpx;

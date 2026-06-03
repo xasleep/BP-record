@@ -111,6 +111,10 @@ Page({
         this.initCanvas();
     },
     onShow() {
+        const tabBar = this.getTabBar && this.getTabBar();
+        if (tabBar) {
+            tabBar.setData({ selected: 1 });
+        }
         this.refresh();
     },
     changeRange(event) {

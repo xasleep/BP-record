@@ -1,5 +1,12 @@
 <view class="page {{fontClass}}">
-  <button class="primary-button record-button" bindtap="goRecord">+ 记录</button>
+  <button class="record-hero" bindtap="goRecord">
+    <view class="record-plus">+</view>
+    <view class="record-copy">
+      <view class="record-title">记录血压</view>
+      <view class="record-subtitle">点击添加新的血压记录</view>
+    </view>
+    <view class="record-arrow">›</view>
+  </button>
 
   <view class="card calendar-card">
     <view class="month-header">

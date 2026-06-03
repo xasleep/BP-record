@@ -14,6 +14,10 @@ Page({
         range: storage_1.DEFAULT_SETTINGS.range,
     },
     onShow() {
+        const tabBar = this.getTabBar && this.getTabBar();
+        if (tabBar) {
+            tabBar.setData({ selected: 2 });
+        }
         this.loadSettings();
     },
     loadSettings() {

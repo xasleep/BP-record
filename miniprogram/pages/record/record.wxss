@@ -39,8 +39,8 @@
   margin-top: 16rpx;
   padding: 20rpx;
   border: 1rpx solid #D1D5DB;
-  border-radius: 8rpx;
-  background: #FAFBFC;
+  border-radius: 16rpx;
+  background: rgba(250, 251, 252, 0.78);
   color: #111827;
   font-size: 30rpx;
 }

@@ -8,11 +8,12 @@
   ],
   "window": {
     "navigationBarTitleText": "血压记录",
-    "navigationBarBackgroundColor": "#4A90D9",
+    "navigationBarBackgroundColor": "#5F86FF",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#F5F7FA"
   },
   "tabBar": {
+    "custom": true,
     "color": "#6B7280",
     "selectedColor": "#4A90D9",
     "backgroundColor": "#FFFFFF",
@@ -24,7 +25,7 @@
       },
       {
         "pagePath": "pages/data/data",
-        "text": "数据"
+        "text": "汇总"
       },
       {
         "pagePath": "pages/mine/mine",
