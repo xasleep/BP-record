@@ -29,6 +29,12 @@
   justify-content: space-between;
 }
 
+.record-actions {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+}
+
 .record-date {
   color: #111827;
   font-weight: 700;
@@ -43,10 +49,32 @@
 .status-pill {
   min-width: 92rpx;
   padding: 10rpx 18rpx;
-  border-radius: 8rpx;
+  border-radius: 12rpx;
   color: #FFFFFF;
   font-size: 26rpx;
   text-align: center;
+}
+
+.edit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  min-width: 132rpx;
+  height: 64rpx;
+  padding: 0 20rpx;
+  border: 2rpx solid #5F86FF;
+  border-radius: 32rpx;
+  background: rgba(255, 255, 255, 0.72);
+  color: #5F86FF;
+  font-size: 28rpx;
+  font-weight: 700;
+  line-height: 60rpx;
+}
+
+.edit-icon {
+  font-size: 30rpx;
+  line-height: 1;
 }
 
 .status-normal {

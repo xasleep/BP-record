@@ -49,4 +49,13 @@ Page({
             filterDate: '',
         }, () => this.refresh());
     },
+    editRecord(event) {
+        const dataset = event.currentTarget.dataset;
+        if (!dataset.id) {
+            return;
+        }
+        wx.navigateTo({
+            url: `/pages/record/record?id=${dataset.id}`,
+        });
+    },
 });

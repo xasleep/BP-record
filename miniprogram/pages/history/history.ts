@@ -62,4 +62,15 @@ Page({
       filterDate: '',
     }, () => this.refresh())
   },
+
+  editRecord(event: WechatMiniprogram.TouchEvent) {
+    const dataset = event.currentTarget.dataset as { id?: string }
+    if (!dataset.id) {
+      return
+    }
+
+    wx.navigateTo({
+      url: `/pages/record/record?id=${dataset.id}`,
+    })
+  },
 })

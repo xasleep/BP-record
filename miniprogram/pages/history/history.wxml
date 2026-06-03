@@ -12,7 +12,13 @@
         <view class="record-date">{{item.dateText}}</view>
         <view class="record-time">{{item.timeText}}</view>
       </view>
-      <view class="status-pill status-{{item.status}}">{{item.statusText}}</view>
+      <view class="record-actions">
+        <view class="status-pill status-{{item.status}}">{{item.statusText}}</view>
+        <button class="edit-button" data-id="{{item.id}}" bindtap="editRecord">
+          <text class="edit-icon">✎</text>
+          <text>编辑</text>
+        </button>
+      </view>
     </view>
 
     <view class="values">

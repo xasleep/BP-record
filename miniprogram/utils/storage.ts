@@ -38,6 +38,22 @@ export function addRecord(record: BloodPressureRecord): boolean {
   return saveRecords([record, ...records])
 }
 
+export function getRecordById(id: string): BloodPressureRecord | undefined {
+  return getRecords().find((record) => record.id === id)
+}
+
+export function updateRecord(record: BloodPressureRecord): boolean {
+  const records = getRecords()
+  const index = records.findIndex((item) => item.id === record.id)
+  if (index < 0) {
+    return false
+  }
+
+  const nextRecords = records.slice()
+  nextRecords[index] = record
+  return saveRecords(nextRecords)
+}
+
 export function getSettings(): UserSettings {
   try {
     const stored = wx.getStorageSync(SETTINGS_KEY) as Partial<UserSettings> | ''

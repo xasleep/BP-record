@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "数据趋势",
+  "navigationStyle": "custom",
   "usingComponents": {}
 }

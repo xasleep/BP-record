@@ -1,26 +1,53 @@
-<view class="page {{fontClass}}">
-  <view class="range-switch">
-    <button class="switch-button {{rangeDays === 7 ? 'active' : ''}}" data-days="7" bindtap="changeRange">7天</button>
-    <button class="switch-button {{rangeDays === 30 ? 'active' : ''}}" data-days="30" bindtap="changeRange">30天</button>
+<view class="trend-page {{fontClass}}">
+  <view class="trend-header">
+    <view class="trend-header-wave"></view>
+    <view class="trend-title">数据趋势</view>
   </view>
 
-  <view class="card chart-card">
-    <view class="section-title">血压趋势</view>
-    <view class="legend-row">
-      <text class="legend red">收缩压</text>
-      <text class="legend blue">舒张压</text>
-      <text class="legend gray">120/80参考线</text>
+  <view class="trend-content">
+    <view class="range-segment">
+      <button class="range-item {{rangeDays === 7 ? 'active' : ''}}" data-days="7" bindtap="changeRange">7天</button>
+      <button class="range-item {{rangeDays === 30 ? 'active' : ''}}" data-days="30" bindtap="changeRange">30天</button>
     </view>
-    <view wx:if="{{bpEmpty}}" class="chart-empty">至少需要 2 天记录才能生成趋势图</view>
-    <canvas type="2d" id="bpCanvas" class="chart-canvas {{bpEmpty ? 'chart-hidden' : ''}}"></canvas>
-  </view>
 
-  <view class="card chart-card">
-    <view class="section-title">心率趋势</view>
-    <view class="legend-row">
-      <text class="legend green">心率</text>
+    <view class="trend-card summary-card">
+      <view class="card-title">血压概况</view>
+      <view class="summary-panel">
+        <view class="summary-row status-row">
+          <text class="summary-label">状态</text>
+          <text class="status-badge status-{{overviewStatus}}">{{overviewStatusText}}</text>
+        </view>
+        <view class="summary-row">
+          <text class="summary-label">平均收缩压：</text>
+          <text class="summary-value systolic-value">{{averageSystolic}}</text>
+          <text class="summary-unit">mmHg</text>
+        </view>
+        <view class="summary-row">
+          <text class="summary-label">平均舒张压：</text>
+          <text class="summary-value diastolic-value">{{averageDiastolic}}</text>
+          <text class="summary-unit">mmHg</text>
+        </view>
+      </view>
     </view>
-    <view wx:if="{{hrEmpty}}" class="chart-empty">至少需要 2 天记录才能生成趋势图</view>
-    <canvas type="2d" id="hrCanvas" class="chart-canvas {{hrEmpty ? 'chart-hidden' : ''}}"></canvas>
+
+    <view class="trend-card chart-card blood-card">
+      <view class="card-title">血压趋势</view>
+      <view class="legend-row">
+        <view class="legend-item"><text class="legend-dot red-dot"></text><text>收缩压</text></view>
+        <view class="legend-item"><text class="legend-dot blue-dot"></text><text>舒张压</text></view>
+        <view class="legend-item"><text class="legend-dash"></text><text>正常上限</text></view>
+      </view>
+      <view wx:if="{{bpEmpty}}" class="chart-empty">至少需要 2 天记录才能生成趋势图</view>
+      <canvas wx:else type="2d" id="bpCanvas" class="blood-canvas"></canvas>
+    </view>
+
+    <view class="trend-card chart-card heart-card">
+      <view class="card-title">心率趋势</view>
+      <view class="legend-row heart-legend">
+        <view class="legend-item"><text class="legend-dot green-dot"></text><text>心率</text></view>
+      </view>
+      <view wx:if="{{hrEmpty}}" class="chart-empty heart-empty">至少需要 2 天记录才能生成趋势图</view>
+      <canvas wx:else type="2d" id="hrCanvas" class="heart-canvas"></canvas>
+    </view>
   </view>
 </view>

@@ -2,6 +2,22 @@
   <view class="card form-card">
     <view class="section-title">本次测量</view>
 
+    <picker mode="date" value="{{recordDate}}" bindchange="onDateChange">
+      <view class="field">
+        <view class="label">测量日期</view>
+        <view class="picker-value">{{recordDate}}</view>
+        <text class="unit">›</text>
+      </view>
+    </picker>
+
+    <picker mode="time" value="{{recordTime}}" bindchange="onTimeChange">
+      <view class="field">
+        <view class="label">测量时间</view>
+        <view class="picker-value">{{recordTime}}</view>
+        <text class="unit">›</text>
+      </view>
+    </picker>
+
     <view class="field">
       <view class="label">收缩压</view>
       <input class="input" type="number" placeholder="请输入高压" value="{{systolic}}" bindinput="onSystolicInput" />
@@ -26,5 +42,5 @@
     </view>
   </view>
 
-  <button class="primary-button" bindtap="submitRecord">保存记录</button>
+  <button class="primary-button" bindtap="submitRecord">{{submitText}}</button>
 </view>

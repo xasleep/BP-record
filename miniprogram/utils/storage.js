@@ -4,6 +4,8 @@ exports.DEFAULT_SETTINGS = void 0;
 exports.getRecords = getRecords;
 exports.saveRecords = saveRecords;
 exports.addRecord = addRecord;
+exports.getRecordById = getRecordById;
+exports.updateRecord = updateRecord;
 exports.getSettings = getSettings;
 exports.saveSettings = saveSettings;
 const RECORDS_KEY = 'bp_records';
@@ -40,6 +42,19 @@ function saveRecords(records) {
 function addRecord(record) {
     const records = getRecords();
     return saveRecords([record, ...records]);
+}
+function getRecordById(id) {
+    return getRecords().find((record) => record.id === id);
+}
+function updateRecord(record) {
+    const records = getRecords();
+    const index = records.findIndex((item) => item.id === record.id);
+    if (index < 0) {
+        return false;
+    }
+    const nextRecords = records.slice();
+    nextRecords[index] = record;
+    return saveRecords(nextRecords);
 }
 function getSettings() {
     try {
